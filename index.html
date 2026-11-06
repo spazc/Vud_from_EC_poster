@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Poster References | V_ud from Electron Capture</title>
+  <style>
+    :root {
+      --primary-color: #165520;
+      --primary-light: #e8f0e9;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --bg-color: #f8faf8;
+      --card-bg: #ffffff;
+      --border-color: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+    }
+
+    /* Header Banner */
+    header {
+      background-color: var(--primary-color);
+      color: #ffffff;
+      padding: 28px 20px 24px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    header p {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    header .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 16px 40px;
+    }
+
+    /* Live Search Bar */
+    .search-box {
+      margin-bottom: 24px;
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 10px;
+      outline: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      background: #ffffff;
+    }
+
+    /* Reference List Cards */
+    .ref-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ref-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      gap: 14px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ref-card:hover {
+      box-shadow: 0 4px 12px rgba(22, 85, 32, 0.08);
+      border-color: var(--primary-color);
+    }
+    .ref-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--primary-light);
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ref-content {
+      flex-grow: 1;
+    }
+    .ref-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .ref-authors {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .ref-journal {
+      font-size: 0.86rem;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+    .ref-journal span { font-weight: 600; }
+
+    /* DOI Pills */
+    .doi-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      background: var(--primary-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .doi-btn:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-color);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>First Extraction of V<sub>ud</sub> from Pure Electron Capture</h1>
+    <p>M. González-Alonso, A. Lovato, O. Naviliat-Cuncic, S. Paz</p>
+    <div class="badge">Official Poster References</div>
+  </header>
+
+  <div class="container">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="🔍 Search references by author, title, journal, or year..." onkeyup="filterRefs()">
+    </div>
+
+    <div class="ref-list" id="refList">
+
+      <!-- [1] -->
+      <div class="ref-card">
+        <div class="ref-num">[1]</div>
+        <div class="ref-content">
+          <div class="ref-title">Symmetry violations in nuclear and neutron β decay</div>
+          <div class="ref-authors">K. K. Vos, H. W. Wilschut, and R. G. E. Timmermans</div>
+          <div class="ref-journal">Rev. Mod. Phys. <span>87</span>, 1483 (2015)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/RevModPhys.87.1483" target="_blank">📄 DOI: 10.1103/RevModPhys.87.1483</a>
+        </div>
+      </div>
+
+      <!-- [2] -->
+      <div class="ref-card">
+        <div class="ref-num">[2]</div>
+        <div class="ref-content">
+          <div class="ref-title">New physics searches in nuclear and neutron β decay</div>
+          <div class="ref-authors">M. Gonzalez-Alonso, O. Naviliat-Cuncic, and N. Severijns</div>
+          <div class="ref-journal">Prog. Part. Nucl. Phys. <span>104</span>, 165 (2019)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/j.ppnp.2018.08.002" target="_blank">📄 DOI: 10.1016/j.ppnp.2018.08.002</a>
+        </div>
+      </div>
+
+      <!-- [3] -->
+      <div class="ref-card">
+        <div class="ref-num">[3]</div>
+        <div class="ref-content">
+          <div class="ref-title">Superallowed 0⁺ → 0⁺ nuclear β decays: 2020 critical survey, with implications for V<sub>ud</sub> and CKM unitarity</div>
+          <div class="ref-authors">J. C. Hardy and I. S. Towner</div>
+          <div class="ref-journal">Phys. Rev. C <span>102</span>, 045501 (2020)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.102.045501" target="_blank">📄 DOI: 10.1103/PhysRevC.102.045501</a>
+        </div>
+      </div>
+
+      <!-- [4] -->
+      <div class="ref-card">
+        <div class="ref-num">[4]</div>
+        <div class="ref-content">
+          <div class="ref-title">Test of the Conserved Vector Current Hypothesis in T=1/2 Mirror Transitions and New Determination of |V<sub>ud</sub>|</div>
+          <div class="ref-authors">O. Naviliat-Cuncic and N. Severijns</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>102</span>, 142302 (2009)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.102.142302" target="_blank">📄 DOI: 10.1103/PhysRevLett.102.142302</a>
+        </div>
+      </div>
+
+      <!-- [5] -->
+      <div class="ref-card">
+        <div class="ref-num">[5]</div>
+        <div class="ref-content">
+          <div class="ref-title">ℱt values of the mirror β transitions and the weak-magnetism-induced current in allowed nuclear β decay</div>
+          <div class="ref-authors">N. Severijns, L. Hayen, V. De Leebeeck, et al.</div>
+          <div class="ref-journal">Phys. Rev. C <span>107</span>, 015502 (2023)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.107.015502" target="_blank">📄 DOI: 10.1103/PhysRevC.107.015502</a>
+        </div>
+      </div>
+
+      <!-- [6] -->
+      <div class="ref-card">
+        <div class="ref-num">[6]</div>
+        <div class="ref-content">
+          <div class="ref-title">Review of Particle Physics (Particle Data Group)</div>
+          <div class="ref-authors">S. Navas et al. (Particle Data Group)</div>
+          <div class="ref-journal">Phys. Rev. D <span>110</span>, 030001 (2024)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevD.110.030001" target="_blank">📄 DOI: 10.1103/PhysRevD.110.030001</a>
+        </div>
+      </div>
+
+      <!-- [7] -->
+      <div class="ref-card">
+        <div class="ref-num">[7]</div>
+        <div class="ref-content">
+          <div class="ref-title">Precise Measurement of the π⁺ → π⁰ e⁺ ν Branching Ratio</div>
+          <div class="ref-authors">D. Počanić, E. Frlež, V. A. Baranov, et al.</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>93</span>, 181803 (2004)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.93.181803" target="_blank">📄 DOI: 10.1103/PhysRevLett.93.181803</a>
+        </div>
+      </div>
+
+      <!-- [8] -->
+      <div class="ref-card">
+        <div class="ref-num">[8]</div>
+        <div class="ref-content">
+          <div class="ref-title">Value of the Axial-Vector Coupling Strength in β and ββ Decays: A Review</div>
+          <div class="ref-authors">J. T. Suhonen</div>
+          <div class="ref-journal">Front. Phys. <span>5</span>, 55 (2017)</div>
+          <a class="doi-btn" href="https://doi.org/10.3389/fphy.2017.00055" target="_blank">📄 DOI: 10.3389/fphy.2017.00055</a>
+        </div>
+      </div>
+
+      <!-- [9] -->
+      <div class="ref-card">
+        <div class="ref-num">[9]</div>
+        <div class="ref-content">
+          <div class="ref-title">Quantum Monte Carlo calculations of weak transitions in A = 6–10 nuclei</div>
+          <div class="ref-authors">S. Pastore, A. Baroni, J. Carlson, et al.</div>
+          <div class="ref-journal">Phys. Rev. C <span>97</span>, 022501(R) (2018)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.97.022501" target="_blank">📄 DOI: 10.1103/PhysRevC.97.022501</a>
+        </div>
+      </div>
+
+      <!-- [10] -->
+      <div class="ref-card">
+        <div class="ref-num">[10]</div>
+        <div class="ref-content">
+          <div class="ref-title">Discrepancy between experimental and theoretical β-decay rates resolved from first principles</div>
+          <div class="ref-authors">P. Gysbers, G. Hagen, J. D. Holt, et al.</div>
+          <div class="ref-journal">Nature Phys. <span>15</span>, 428 (2019)</div>
+          <a class="doi-btn" href="https://doi.org/10.1038/s41567-019-0450-7" target="_blank">📄 DOI: 10.1038/s41567-019-0450-7</a>
+        </div>
+      </div>
+
+      <!-- [11] -->
+      <div class="ref-card">
+        <div class="ref-num">[11]</div>
+        <div class="ref-content">
+          <div class="ref-title">Nuclear ab initio calculations of ⁶He β-decay for beyond the Standard Model studies</div>
+          <div class="ref-authors">A. Glick-Magid, C. Forssén, D. Gazda, et al.</div>
+          <div class="ref-journal">Phys. Lett. B <span>832</span>, 137259 (2022)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/j.physletb.2022.137259" target="_blank">📄 DOI: 10.1016/j.physletb.2022.137259</a>
+        </div>
+      </div>
+
+      <!-- [12] -->
+      <div class="ref-card">
+        <div class="ref-num">[12]</div>
+        <div class="ref-content">
+          <div class="ref-title">Ab initio Strategy for Taming the Nuclear-Structure Dependence of V<sub>ud</sub> Extractions: The ¹⁰C → ¹⁰B Superallowed Transition</div>
+          <div class="ref-authors">M. Gennari, M. Drissi, M. Gorchtein, P. Navratil, and C.-Y. Seng</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>134</span>, 012501 (2025)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.134.012501" target="_blank">📄 DOI: 10.1103/PhysRevLett.134.012501</a>
+        </div>
+      </div>
+
+      <!-- [13] -->
+      <div class="ref-card">
+        <div class="ref-num">[13]</div>
+        <div class="ref-content">
+          <div class="ref-title">Ab initio Uncertainty Quantification of Neutrinoless Double-Beta Decay in ⁷⁶Ge</div>
+          <div class="ref-authors">A. Belley et al.</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>132</span>, 182502 (2024)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.132.182502" target="_blank">📄 DOI: 10.1103/PhysRevLett.132.182502</a>
+        </div>
+      </div>
+
+      <!-- [14] -->
+      <div class="ref-card">
+        <div class="ref-num">[14]</div>
+        <div class="ref-content">
+          <div class="ref-title">Ab initio predictions link the neutron skin of ²⁰⁸Pb to nuclear forces</div>
+          <div class="ref-authors">B. Hu et al.</div>
+          <div class="ref-journal">Nature Phys. <span>18</span>, 1196 (2022)</div>
+          <a class="doi-btn" href="https://doi.org/10.1038/s41567-023-02324-9" target="_blank">📄 DOI: 10.1038/s41567-023-02324-9</a>
+        </div>
+      </div>
+
+      <!-- [15] -->
+      <div class="ref-card">
+        <div class="ref-num">[15]</div>
+        <div class="ref-content">
+          <div class="ref-title">Electroweak radiative corrections to muon capture</div>
+          <div class="ref-authors">A. Czarnecki, W. J. Marciano, and A. Sirlin</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>99</span>, 032003 (2007)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.99.032003" target="_blank">📄 DOI: 10.1103/PhysRevLett.99.032003</a>
+        </div>
+      </div>
+
+      <!-- [16] -->
+      <div class="ref-card">
+        <div class="ref-num">[16]</div>
+        <div class="ref-content">
+          <div class="ref-title">General Properties of the Electromagnetic Corrections to the Beta Decay of a Physical Nucleon</div>
+          <div class="ref-authors">A. Sirlin</div>
+          <div class="ref-journal">Phys. Rev. <span>164</span>, 1767 (1967)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRev.164.1767" target="_blank">📄 DOI: 10.1103/PhysRev.164.1767</a>
+        </div>
+      </div>
+
+      <!-- [17] -->
+      <div class="ref-card">
+        <div class="ref-num">[17]</div>
+        <div class="ref-content">
+          <div class="ref-title">Quantum Monte Carlo methods for nuclear physics</div>
+          <div class="ref-authors">J. Carlson, S. Gandolfi, F. Pederiva, et al.</div>
+          <div class="ref-journal">Rev. Mod. Phys. <span>87</span>, 1067 (2015)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/RevModPhys.87.1067" target="_blank">📄 DOI: 10.1103/RevModPhys.87.1067</a>
+        </div>
+      </div>
+
+      <!-- [18] -->
+      <div class="ref-card">
+        <div class="ref-num">[18]</div>
+        <div class="ref-content">
+          <div class="ref-title">Nonempirical Interactions for the Nuclear Shell Model: An Update</div>
+          <div class="ref-authors">S. R. Stroberg, S. K. Bogner, H. Hergert, and J. D. Holt</div>
+          <div class="ref-journal">Ann. Rev. Nucl. Part. Sci. <span>69</span>, 307 (2019)</div>
+          <a class="doi-btn" href="https://doi.org/10.1146/annurev-nucl-101917-021120" target="_blank">📄 DOI: 10.1146/annurev-nucl-101917-021120</a>
+        </div>
+      </div>
+
+      <!-- [19] -->
+      <div class="ref-card">
+        <div class="ref-num">[19]</div>
+        <div class="ref-content">
+          <div class="ref-title">Energy levels of light nuclei A=5, 6, 7</div>
+          <div class="ref-authors">D. R. Tilley, C. M. Cheves, J. L. Godwin, et al.</div>
+          <div class="ref-journal">Nucl. Phys. A <span>708</span>, 3 (2002)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/S0375-9474(02)00597-3" target="_blank">📄 DOI: 10.1016/S0375-9474(02)00597-3</a>
+        </div>
+      </div>
+
+      <!-- [20] -->
+      <div class="ref-card">
+        <div class="ref-num">[20]</div>
+        <div class="ref-content">
+          <div class="ref-title">First direct ⁷Be electron-capture Q-value measurement toward high-precision searches for neutrino physics beyond the Standard Model</div>
+          <div class="ref-authors">R. Bhandari, G. Bollen, T. Brunner, et al.</div>
+          <div class="ref-journal">Phys. Rev. C <span>109</span>, L022501 (2024)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.109.L022501" target="_blank">📄 DOI: 10.1103/PhysRevC.109.L022501</a>
+        </div>
+      </div>
+
+      <!-- [21] -->
+      <div class="ref-card">
+        <div class="ref-num">[21]</div>
+        <div class="ref-content">
+          <div class="ref-title">Electron-capture decay rate of ⁷Be encapsulated in a C₇₀ fullerene cage</div>
+          <div class="ref-authors">T. Ohtsuki, R. Kuwahara, and K. Ohno</div>
+          <div class="ref-journal">Phys. Rev. C <span>108</span>, L011301 (2023)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.108.L011301" target="_blank">📄 DOI: 10.1103/PhysRevC.108.L011301</a>
+        </div>
+      </div>
+
+      <!-- [22] -->
+      <div class="ref-card">
+        <div class="ref-num">[22]</div>
+        <div class="ref-content">
+          <div class="ref-title">Precise measurement of the ⁷Be electron capture decay half-life in silicon carbide</div>
+          <div class="ref-authors">C. Santonastaso, N. Casali, L. Di Benedetto, et al.</div>
+          <div class="ref-journal">J. Phys. G: Nucl. Part. Phys. <span>52</span>, 035101 (2025)</div>
+          <a class="doi-btn" href="https://doi.org/10.1088/1361-6471/ad98ac" target="_blank">📄 DOI: 10.1088/1361-6471/ad98ac</a>
+        </div>
+      </div>
+
+      <!-- [23] -->
+      <div class="ref-card">
+        <div class="ref-num">[23]</div>
+        <div class="ref-content">
+          <div class="ref-title">Chiral effective field theory calculations of weak transitions in light nuclei</div>
+          <div class="ref-authors">G. B. King, L. Andreoli, S. Pastore, et al.</div>
+          <div class="ref-journal">Phys. Rev. C <span>102</span>, 025501 (2020)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevC.102.025501" target="_blank">📄 DOI: 10.1103/PhysRevC.102.025501</a>
+        </div>
+      </div>
+
+      <!-- [24] -->
+      <div class="ref-card">
+        <div class="ref-num">[24]</div>
+        <div class="ref-content">
+          <div class="ref-title">Beta Decay in Medium-Mass Nuclei with the In-Medium Similarity Renormalization Group</div>
+          <div class="ref-authors">S. R. Stroberg</div>
+          <div class="ref-journal">Particles <span>4</span>, 521 (2021)</div>
+          <a class="doi-btn" href="https://doi.org/10.3390/particles4040038" target="_blank">📄 DOI: 10.3390/particles4040038</a>
+        </div>
+      </div>
+
+      <!-- [25] -->
+      <div class="ref-card">
+        <div class="ref-num">[25]</div>
+        <div class="ref-content">
+          <div class="ref-title">Orbital electron capture by the nucleus</div>
+          <div class="ref-authors">W. Bambynek, H. Behrens, M. H. Chen, et al.</div>
+          <div class="ref-journal">Rev. Mod. Phys. <span>49</span>, 77 (1977)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/RevModPhys.49.77" target="_blank">📄 DOI: 10.1103/RevModPhys.49.77</a>
+        </div>
+      </div>
+
+      <!-- [26] -->
+      <div class="ref-card">
+        <div class="ref-num">[26]</div>
+        <div class="ref-content">
+          <div class="ref-title">Phase-space integrals for beta decay and nuclear matrix elements</div>
+          <div class="ref-authors">J. N. Bahcall</div>
+          <div class="ref-journal">Nucl. Phys. <span>75</span>, 10 (1966)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/0029-5582(66)90745-0" target="_blank">📄 DOI: 10.1016/0029-5582(66)90745-0</a>
+        </div>
+      </div>
+
+      <!-- [27] -->
+      <div class="ref-card">
+        <div class="ref-num">[27]</div>
+        <div class="ref-content">
+          <div class="ref-title">Solar neutrino experiments</div>
+          <div class="ref-authors">J. N. Bahcall</div>
+          <div class="ref-journal">Rev. Mod. Phys. <span>50</span>, 881 (1978)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/RevModPhys.50.881" target="_blank">📄 DOI: 10.1103/RevModPhys.50.881</a>
+        </div>
+      </div>
+
+      <!-- [28] -->
+      <div class="ref-card">
+        <div class="ref-num">[28]</div>
+        <div class="ref-content">
+          <div class="ref-title">Improved calculations of electron capture transitions for decay data and radionuclide metrology</div>
+          <div class="ref-authors">X. Mougeot</div>
+          <div class="ref-journal">Appl. Radiat. Isot. <span>134</span>, 225 (2018)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/j.apradiso.2017.07.027" target="_blank">📄 DOI: 10.1016/j.apradiso.2017.07.027</a>
+        </div>
+      </div>
+
+      <!-- [29] -->
+      <div class="ref-card">
+        <div class="ref-num">[29]</div>
+        <div class="ref-content">
+          <div class="ref-title">Towards high-precision calculation of electron capture decays</div>
+          <div class="ref-authors">X. Mougeot</div>
+          <div class="ref-journal">Appl. Radiat. Isot. <span>154</span>, 108884 (2019)</div>
+          <a class="doi-btn" href="https://doi.org/10.1016/j.apradiso.2019.108884" target="_blank">📄 DOI: 10.1016/j.apradiso.2019.108884</a>
+        </div>
+      </div>
+
+      <!-- Supplementary BibTeX entries -->
+      <div class="ref-card">
+        <div class="ref-num">[30]</div>
+        <div class="ref-content">
+          <div class="ref-title">Overlap and Exchange Effects in Beta Decay</div>
+          <div class="ref-authors">J. N. Bahcall</div>
+          <div class="ref-journal">Phys. Rev. <span>129</span>, 2683 (1963)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRev.129.2683" target="_blank">📄 DOI: 10.1103/PhysRev.129.2683</a>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-num">[31]</div>
+        <div class="ref-content">
+          <div class="ref-title">Direct Measurement of the ⁷Be L/K Capture Ratio in Ta-Based Superconducting Tunnel Junctions</div>
+          <div class="ref-authors">S. Fretwell, K. G. Leach, C. Bray, et al.</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>125</span>, 032701 (2020)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.125.032701" target="_blank">📄 DOI: 10.1103/PhysRevLett.125.032701</a>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-num">[32]</div>
+        <div class="ref-content">
+          <div class="ref-title">Self-consistent calculations for atomic electron capture</div>
+          <div class="ref-authors">V. A. Sevestrean, O. Nițescu, S. Ghinescu, and S. Stoica</div>
+          <div class="ref-journal">Phys. Rev. A <span>108</span>, 012810 (2023)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevA.108.012810" target="_blank">📄 DOI: 10.1103/PhysRevA.108.012810</a>
+        </div>
+      </div>
+
+      <div class="ref-card">
+        <div class="ref-num">[33]</div>
+        <div class="ref-content">
+          <div class="ref-title">β-decay anisotropies of the mirror nuclei ¹⁵O and ¹⁷F</div>
+          <div class="ref-authors">N. Severijns, J. Wouters, J. Vanhaverbeke, and L. Vanneste</div>
+          <div class="ref-journal">Phys. Rev. Lett. <span>63</span>, 1050 (1989)</div>
+          <a class="doi-btn" href="https://doi.org/10.1103/PhysRevLett.63.1050" target="_blank">📄 DOI: 10.1103/PhysRevLett.63.1050</a>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      Poster References • V<sub>ud</sub> from Electron Capture • IFIC (CSIC-UV) & Collaboration
+    </footer>
+  </div>
+
+  <script>
+    function filterRefs() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.ref-card');
+      
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(input)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
